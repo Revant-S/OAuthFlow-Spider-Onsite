@@ -6,6 +6,9 @@ import debug from "debug";
 import registerRoutes from "./routers/registerroutes"
 import authorizeRoutes from "./routers/authRoutes"
 import resourceRoutes from "./routers/resourceRoutes"
+import adminTokenRoutes from "./routers/adminToken"
+
+
 // import User from "./models/userModel";
 const startUpDebugger = debug("app:startUpBebugger");
 const errorStartUpDebugger = debug("app:errorStartUpDebugger");
@@ -19,7 +22,7 @@ app.use(express.urlencoded({extended : true}))
 app.use("/registerApp" , registerRoutes);
 app.use("/authorize" ,authorizeRoutes )
 app.use("/resource" ,resourceRoutes )
-
+app.use("/adminToken", adminTokenRoutes)
 if (app.get("env") === "development") {
     morgan("dev")
 }

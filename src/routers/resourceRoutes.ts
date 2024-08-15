@@ -5,6 +5,4 @@ const router = Router();
 
 router.post("/getUser" , resourceController.getUserInfo)
 
-
-
 export default router
