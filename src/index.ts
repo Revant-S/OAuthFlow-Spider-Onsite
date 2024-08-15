@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import debug from "debug";
 import registerRoutes from "./routers/registerroutes"
+import authorizeRoutes from "./routers/authRoutes"
+// import User from "./models/userModel";
 const startUpDebugger = debug("app:startUpBebugger");
 const errorStartUpDebugger = debug("app:errorStartUpDebugger");
 const dbDebugger = debug("app:dbDebugger");
@@ -14,7 +16,7 @@ app.use(express.urlencoded({extended : true}))
 
 
 app.use("/registerApp" , registerRoutes);
-
+app.use("/authorize" ,authorizeRoutes )
 
 
 if (app.get("env") === "development") {
@@ -34,12 +36,8 @@ const connectToDb = async () => {
 
 connectToDb()
 
-
-
-
-
-
-
-
-
-
+// User.create({
+//     userEmail : "revant8.sinha@gmail.com",
+//     password : "1234567890",
+//     bank_secret : "This is secret"
+// })
