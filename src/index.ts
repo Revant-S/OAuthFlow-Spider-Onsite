@@ -8,8 +8,6 @@ import authorizeRoutes from "./routers/authRoutes"
 import resourceRoutes from "./routers/resourceRoutes"
 import adminTokenRoutes from "./routers/adminToken"
 
-
-// import User from "./models/userModel";
 const startUpDebugger = debug("app:startUpBebugger");
 const errorStartUpDebugger = debug("app:errorStartUpDebugger");
 const dbDebugger = debug("app:dbDebugger");
@@ -40,8 +38,3 @@ const connectToDb = async () => {
 
 connectToDb()
 
-// User.create({
-//     userEmail : "revant8.sinha@gmail.com",
-//     password : "1234567890",
-//     bank_secret : "This is secret"
-// })
