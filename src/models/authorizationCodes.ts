@@ -1,3 +1,4 @@
+// Not for Implicit flow
 import mongoose, { Document, Schema } from 'mongoose';
 
 interface IAuthorizationCode extends Document {
