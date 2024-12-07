@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+      - main
+      - release/*
+
+jobs:
+  test:
+    name: Test on Node.js ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node_version: [14, 16, 18] # Specify Node.js versions
+        os: [ubuntu-latest]       # Add more OS if needed, e.g., windows-latest, macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: Install dependencies, build, and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm test
